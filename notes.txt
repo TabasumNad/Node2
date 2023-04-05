@@ -101,3 +101,9 @@ const client = new MongoClient(MONGO_URL); // dial
 // Top level await
 await client.connect(); // call
 console.log("Mongo is connected !!!  ");
+
+
+
+
+///////////POSTMAN PUBLISH URL//////
+https://documenter.getpostman.com/view/25865486/2s93RXsWNq

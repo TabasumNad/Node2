@@ -7,6 +7,8 @@ import { MongoClient } from "mongodb";
 import bcrypt from "bcrypt";
 import moviesRouter from "./router/movies.router.js";
 import usersRouter from "./router/users.router.js"
+import { auth } from "./middleware/auth.js";
+
 // import loginRouter from "./router/login.router.js";
 
 
@@ -69,7 +71,7 @@ const mobiles=[
   }
 ]
 
-app.get("/mobile", async function (request, response) {
+app.get("/mobile",auth, async function (request, response) {
 
   const result= await client.
   db("backend_connection")
@@ -80,7 +82,7 @@ app.get("/mobile", async function (request, response) {
   response.send(mobiles);
 });
 
-app.post("/mobile", async function (request, response) {
+app.post("/mobile",auth, async function (request, response) {
 
   const data=request.body;
     console.log(data);
